@@ -45,7 +45,7 @@ Just FYI, here is what it looks like on the website :
 - [ ] Add alarm for the fake password
 - [x] Add feature to write * on the LCD when a button is pressed
 - [ ] Add alarm sound
-- [ ] Add English for commentaries 
+- [ ] Add English comments 
 
 ## Me and programming langages (progression)
 - *11/11/2021* 
