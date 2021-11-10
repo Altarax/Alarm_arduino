@@ -45,3 +45,10 @@ Just FYI, here is what it looks like on the website :
 - [ ] Add alarm for the fake password
 - [x] Add feature to write * on the LCD when a button is pressed
 - [ ] Add alarm sound
+
+## Me and programming langages (progression)
+- *11/11/2021* 
+
+| VHDL                        | Python                      | C                           |
+|-----------------------------|-----------------------------|-----------------------------|
+|  ➖➖➖➖➖🚀➖➖➖🌑  |  ➖➖➖➖➖➖🚀➖➖🌑  |  ➖➖➖➖➖➖🚀➖➖🌑  |
