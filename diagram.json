@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -367.46,
+      "left": -216.52,
+      "attrs": {}
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -309.85, "left": 412.82, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 53.34, "left": 823.64, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 48.33,
+      "left": 741.3,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "mega:5V", "lcd1:VDD", "red", [ "v76.68", "h321.03" ] ],
+    [ "mega:GND.2", "lcd1:VSS", "black", [ "v63.1", "h241.9" ] ],
+    [ "mega:2", "lcd1:RS", "green", [ "v-175.43", "h211.33" ] ],
+    [ "mega:3", "lcd1:E", "green", [ "v-169.4", "h238.18" ] ],
+    [ "mega:GND.2", "lcd1:RW", "black", [ "v51.79", "h287.15" ] ],
+    [ "lcd1:D4", "mega:7", "green", [ "v28.65", "h-324.89", "v155.36", "h-1.51" ] ],
+    [ "mega:6", "lcd1:D5", "green", [ "v-147.53", "h323.24" ] ],
+    [ "lcd1:D6", "mega:5", "green", [ "v50.52", "h-325.79" ] ],
+    [ "mega:4", "lcd1:D7", "green", [ "v-127.92", "h0.32" ] ],
+    [ "pir1:OUT", "mega:53", "green", [ "v0" ] ],
+    [ "pir1:VCC", "mega:5V", "red", [ "v133.74", "h-586.19" ] ],
+    [ "pir1:GND", "mega:GND.3", "black", [ "v72.56", "h-575.07" ] ],
+    [ "keypad1:R1", "mega:45", "green", [ "v0" ] ],
+    [ "keypad1:R2", "mega:43", "green", [ "v0" ] ],
+    [ "keypad1:R3", "mega:41", "green", [ "v0" ] ],
+    [ "keypad1:R4", "mega:39", "green", [ "v0" ] ],
+    [ "keypad1:C1", "mega:37", "green", [ "v0" ] ],
+    [ "keypad1:C2", "mega:35", "green", [ "v0" ] ],
+    [ "keypad1:C3", "mega:33", "green", [ "v0" ] ],
+    [ "keypad1:C4", "mega:31", "green", [ "v0" ] ],
+    [ "bz1:1", "mega:GND.3", "green", [ "v0" ] ],
+    [ "bz1:2", "mega:29", "green", [ "v4.26", "h-301.02", "v-86.5" ] ]
+  ]
+}
