@@ -5,7 +5,7 @@
 ## About the project
 
 First of all I'm in engineering school (CESI) in apprenticeship and I proposed to my school to create a workshop aiming at helping
-futur interested students in my education (Embedded Systems). This workshop could be usefull to :
+futur interested students in my education (Embedded Systems). This workshop could be useful to :
 * Show real work (what we are doing at work)
 * Show real tools (like MPLABX, PSIM, Linux, ...)
 * Show real electronic schemas
