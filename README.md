@@ -2,8 +2,8 @@
 
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://user-images.githubusercontent.com/46035021/141173582-9912054c-fa62-45d8-a8dd-a964239d683d.png">
-    <img src="images/logo.png" alt="Logo" width="160" height="160">
+  <a href="https://github.com/Altarax/Alarm_arduino">
+    <img src="https://user-images.githubusercontent.com/46035021/141173582-9912054c-fa62-45d8-a8dd-a964239d683d.png" alt="Logo" width="160" height="160">
   </a>
 </div>
 
