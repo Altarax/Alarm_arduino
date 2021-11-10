@@ -1,4 +1,4 @@
-# Alarm_arduino
+# Alarm Arduino
 
 <!-- PROJECT LOGO -->
 <div align="center">
