@@ -13,3 +13,5 @@ futur interested students in my education (Embedded Systems). This workshop coul
 
 They have accepted my proposition and a part of this project is to create a model with an
 arduino (mega) and some devices (PIR captor, LCD 16x2, Push buttons, and more).
+I wish they could code and wire and solder with this project.
+
