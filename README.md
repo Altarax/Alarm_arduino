@@ -42,9 +42,9 @@ Just FYI, here is what it looks like on the website :
 
 ## Roadmap
 
-- [ ] Add alarm for the fake password
+- [x] Add alarm for the fake password
 - [x] Add feature to write * on the LCD when a button is pressed
-- [ ] Add alarm sound
+- [x] Add alarm sound
 - [ ] Add English comments 
 
 ## Me and programming langages (progression)
