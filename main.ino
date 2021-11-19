@@ -7,9 +7,14 @@
 #define COLS 4
 #define MAX_TESTS 5
 
+/* Définition des LEDs */
+int RED_LED     = 13;
+int ORANGE_LED  = 12;
+int GREEN_LED   = 11;
+
 /* Définition de l'écran*/
 // Définition des broches RS, E, et Data (DB4 à DB7)
-LiquidCrystal lcd_16x2(2, 3, 7, 6, 5, 4);
+LiquidCrystal lcd_16x2(2, 3, 4, 5, 6, 7);
 
 /* Définition du capteur*/
 // Définir où se trouve la sortie du capteur
@@ -20,24 +25,24 @@ int buzzer    = 29;
 
 /* Définition du pad 4x4 */
 // Définir où se trouve chaque pin des bouttons
-byte buttonK0  = 31;
-byte buttonK1  = 33;
-byte buttonK2  = 35;
-byte buttonK3  = 37;
-byte buttonK4  = 39;
-byte buttonK5  = 41;
-byte buttonK6  = 43;
-byte buttonK7  = 45;
+byte K0  = 31;
+byte K1  = 33;
+byte K2  = 35;
+byte K3  = 37;
+byte K4  = 39;
+byte K5  = 41;
+byte K6  = 43;
+byte K7  = 45;
 
 // Créer un keypad avec la librairie Keypad.h
 const char kp4x4Keys[ROWS][COLS] = {
-  {'1', '2', '3', 'A'}, 
-  {'4', '5', '6', 'B'}, 
-  {'7', '8', '9', 'C'}, 
-  {'*', '0', '#', 'D'}
+  {'1', '2', '3', 'S'}, 
+  {'4', '5', '6', 'G'}, 
+  {'7', '8', '9', 'L'}, 
+  {'E', '0', 'X', 'P'}
 };
-byte rowPins[ROWS] = {buttonK7, buttonK6, buttonK5, buttonK4};  // Connecter les lignes 
-byte colPins[COLS] = {buttonK3, buttonK2, buttonK1, buttonK0};  // Connecter les colonnes
+byte rowPins[ROWS] = {K0, K1, K2, K3};  // Connecter les lignes 
+byte colPins[COLS] = {K7, K6, K5, K4};  // Connecter les colonnes
 
 // Nombre d'essais effectués
 static int test = 0;
@@ -48,16 +53,25 @@ void setup() {
 
   Serial.begin(9600);
 
+  // Setup des LEDs
+  pinMode(RED_LED, OUTPUT);
+  pinMode(ORANGE_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
+  digitalWrite(RED_LED, HIGH);      delay(1000);
+
   // Setup du capteur
   pinMode(pirOutput, INPUT);
   digitalWrite(pirOutput, LOW);
 
   // Setup de l'écran
   lcd_16x2.begin(16, 2);
+  digitalWrite(RED_LED, LOW);       digitalWrite(ORANGE_LED, HIGH);   delay(1000); 
 
   // Setup du buzzer
   pinMode(buzzer, OUTPUT);
   digitalWrite(buzzer, LOW);
+  
+  digitalWrite(ORANGE_LED, LOW);    digitalWrite(GREEN_LED, HIGH);
   
 }
 
@@ -86,7 +100,7 @@ bool pass_verify() {
 
       // Afficher caractère "étoile" à chaque appuie {TODO WORKSHOP}
       lcd_16x2.setCursor(index++, 2);
-      lcd_16x2.write("*");
+      lcd_16x2.print("*");
 
       // Insérer les touches appuyées dans le tableau
       passToVerify[n] = pressedKey;
@@ -161,9 +175,17 @@ void loop() {
       // Mot de passe correcte
       lcd_16x2_home();
       lcd_16x2.print(" Bienvenue ");
-      delay(10000);
-      lcd_16x2.clear();
+      
+      // Bip toutes les 500ms pendant 500ms 3 fois
+      int count = 0;
+      while (count < 3) {
 
+        sound_good_pass();
+        count++;
+
+      }
+      
+      lcd_16x2.clear();
       fakeLoop = false;
       
     } else {
@@ -185,7 +207,16 @@ void loop() {
         lcd_16x2.clear();
         lcd_16x2.setCursor(0, 1);
         lcd_16x2.print("   MDP bloque");
-        delay(10000);
+        
+        // Alarm
+        int count = 0;
+        while (count < 5) {
+  
+          alarm();
+          count++;
+  
+        }
+        
         lcd_16x2.clear();
 
         fakeLoop = false;
@@ -197,4 +228,26 @@ void loop() {
 
   }
        
+}
+
+void sound_good_pass(void) {
+
+  digitalWrite(buzzer, HIGH);
+  delay(500);
+  digitalWrite(buzzer, LOW);
+  delay(500);
+        
+}
+
+void alarm(void) {
+
+  digitalWrite(buzzer, HIGH);
+  delay(1500);
+  digitalWrite(buzzer, LOW);
+  delay(100);
+  digitalWrite(buzzer, HIGH);
+  delay(500);
+  digitalWrite(buzzer, LOW);
+  delay(100);
+        
 }
